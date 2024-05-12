@@ -1,0 +1,23 @@
+ <div class="container">
+      <h1>People</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% peoples.forEach((people, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= people.name %></td>
+            <td><%= people.username %></td>
+            <td><%= people.email %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>

@@ -5,8 +5,8 @@
 const router = require('express').Router()
 const { response } = require('express')
 //import funtion dari service
-const { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById } = require('../services/peopleService')
-const { idChecker } = require('../middlewares/idChecker')
+const { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById } = require('../../services/peopleService')
+const { idChecker } = require('../../middlewares/idChecker')
 
 
 router.get('/', getPeople)

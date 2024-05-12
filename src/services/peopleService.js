@@ -44,7 +44,7 @@ const updatePeopleById = (req, res) => {
 }
 
 
-const deletePeopleById = (req, res)=>{
+const deletePeopleById = (req, res) => {
     const { id } = req.params
     const index = data.findIndex(row => row.id === parseInt(id))
     index !== -1 ? (() => {
@@ -54,4 +54,15 @@ const deletePeopleById = (req, res)=>{
     : res.status(404).json({ message: 'Data not found' });
 }
 
-module.exports = { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById }
+//function untuk view integrasi ejs
+const index = (req, res) => {
+
+      const peoples = data;
+      res.render('index', {
+        peoples,
+      });
+   
+  }
+
+
+module.exports = { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById, index }
