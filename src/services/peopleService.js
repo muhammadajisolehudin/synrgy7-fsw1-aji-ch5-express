@@ -64,5 +64,11 @@ const index = (req, res) => {
    
   }
 
+//untuk uplode image. uplodemasih bermasalah 
+const uplodeImagePeople = (req, res) => {
+    const url = `/uplode/${req.file.filename}`
+    res.status(200).json({ message: 'uploaded suksess', url}) 
+}
 
-module.exports = { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById, index }
+
+module.exports = { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById, index, uplodeImagePeople }
