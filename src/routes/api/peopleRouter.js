@@ -8,7 +8,7 @@ const { response } = require('express')
 const { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById, uplodeImagePeople } = require('../../services/peopleService')
 const { idChecker } = require('../../middlewares/idChecker')
 const uplode = require('../../middlewares/uplodeHandler')
-const uplodeHandler = require('../../middlewares/uplodeHandler')
+// const uplodeHandler = require('../../middlewares/uplodeHandler')
 
 
 router.get('/', getPeople)
@@ -19,8 +19,6 @@ router.put('/update/:id', idChecker, updatePeopleById)
 router.delete('/:id', idChecker, deletePeopleById)
 
 //penggunaan middleware uplode
-router.post('/uplode', uplodeHandler.single('image'), uplodeImagePeople)
-
-
+router.post('/uploade', uplode.single('image'), uplodeImagePeople)
 
 module.exports = router

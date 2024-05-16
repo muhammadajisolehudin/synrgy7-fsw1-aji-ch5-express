@@ -64,11 +64,20 @@ const index = (req, res) => {
    
   }
 
-//untuk uplode image. uplodemasih bermasalah 
+//untuk uplode image dengan multer
 const uplodeImagePeople = (req, res) => {
-    const url = `/uplode/${req.file.filename}`
-    res.status(200).json({ message: 'uploaded suksess', url}) 
+    try {
+        const url = `/uplode/${req.file.filename}`
+        res.status(200).json({ message: 'uploaded suksess', url}) 
+    } catch (error) {
+        console.log(err)
+        res.status(500).json({ message: 'Internal server error'})
+    }
+    
 }
 
+// untuk akses file yang sudah i post 
+// gunakan get 
+// get : http://localhost:8000/uplode/0.40201096046082263.pdf
 
 module.exports = { getPeople, getPeopleById, deletePeopleById, addPeople, updatePeopleById, index, uplodeImagePeople }
